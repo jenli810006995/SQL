@@ -1,5 +1,5 @@
 ```
-##Query 1a - Write a query to list all employee ids with their first and last names alongside their corresponding manager first and last names. 
+Query 1a - Write a query to list all employee ids with their first and last names alongside their corresponding manager first and last names. 
 
 SELECT EMPLOYEE_ID, FIRST_NAME, LAST_NAME, MANAGER, MANAGER_NAME FROM RITDB_EMPLOYEE JOIN RITDB_MANAGER ON RITDB_EMPLOYEE.MANAGER=RITDB_MANAGER.MANAGER_ID
 
