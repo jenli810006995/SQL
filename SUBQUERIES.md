@@ -7,13 +7,13 @@ SELECT E.FIRST_NAME, E.LAST_NAME, E.SALARY FROM RITDB_EMPLOYEE E WHERE E.SALARY 
 SELECT E.FIRST_NAME, E.LAST_NAME, E.SALARY FROM RITDB_EMPLOYEE E WHERE E.SALARY > (SELECT MAX(M.SALARY) FROM RITDB_MANAGER M)
 
 # Query 2 - List all employee names with their salaries and their respective manager names and their salaries for all employees 
-in the database who make more than their respective managers.
+# in the database who make more than their respective managers.
 
 SELECT  M.MANAGER_NAME, M.SALARY, E.FIRST_NAME, E.LAST_NAME, E.SALARY FROM RITDB_EMPLOYEE E INNER JOIN 
 RITDB_MANAGER M ON E.MANAGER = M.MANAGER_ID WHERE E.SALARY > M.SALARY
 
 # Query 3 - write a query to find out the name of the manager whose employees have the highest average salaries. 
-You should approach this from two different angles. 
+# You should approach this from two different angles. 
 
 # Q3a (write without using the ROWNUM function or RANK function)
 
