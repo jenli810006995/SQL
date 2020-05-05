@@ -1,0 +1,17 @@
+
+SELECT ID, to_char(visit_date,'YYYY-MM-DD') AS visit_date, PEOPLE FROM stadium
+WHERE PEOPLE > = 100 AND
+((
+    ID-1 IN (SELECT ID FROM stadium WHERE PEOPLE > = 100) AND
+    ID-2 IN (SELECT ID FROM stadium WHERE PEOPLE > = 100)
+)
+OR
+(
+    ID+1 IN (SELECT ID FROM stadium WHERE PEOPLE > = 100) AND
+    ID-1 IN (SELECT ID FROM stadium WHERE PEOPLE > = 100)
+)
+OR
+(
+    ID+2 IN (SELECT ID FROM stadium WHERE PEOPLE > = 100) AND
+    ID+1 IN (SELECT ID FROM stadium WHERE PEOPLE > = 100)
+))
