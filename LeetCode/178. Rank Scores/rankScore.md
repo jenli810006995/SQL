@@ -32,6 +32,7 @@ For example, given the above Scores table, your query should generate the follow
 ```
 
 **Logic**: Use dense_rank() over and order by
+
 **Solution**:
 ```
 Select Score, dense_rank() over(order by Score desc) "Rank"
