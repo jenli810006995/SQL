@@ -36,7 +36,7 @@ group by c.company_code, c.founder order by c.company_code;
 
 ```
 
-# Solution 2: Use join on instead of where statement
+* Solution 2: Use join on instead of where statement
 
 ```
 select c.company_code, c.founder,
