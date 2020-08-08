@@ -6,7 +6,7 @@ with a single update statement and no intermediate temp table.
 
 Note that you must write a single update statement, DO NOT write any select statement for this problem.
 
-* Logic: The syntax for UPDATE is: UPDATE TABLE SET COLUMN = IF(COLUMN,,)
+* Logic: The syntax for UPDATE is: UPDATE TABLE SET COLUMN = IF(COLUMN=,,)
 
 * Solution:
 
