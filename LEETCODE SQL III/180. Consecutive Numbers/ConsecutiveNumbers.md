@@ -24,7 +24,7 @@ For example, given the above Logs table, 1 is the only number that appears conse
 | 1               |
 +-----------------+
 ```
-* Logic: Create three temp tables and then compare them with one another
+* Logic: Create three temp tables and then compare them with one another. Remember to use Distinct()
 
 * Solution:
 ```
