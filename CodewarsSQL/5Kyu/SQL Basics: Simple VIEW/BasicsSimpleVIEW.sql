@@ -1,22 +1,17 @@
-create or replace view members_approved_for_voucher as
+CREATE VIEW members_approved_for_voucher AS
+SELECT m.id, m.name, m.email, SUM(p.price) as total_spending
+FROM members m, sales s, products p
+WHERE m.id = s.member_id
+AND s.product_id = p.id
+AND s.department_id IN (
+    SELECT s.department_id
+    FROM products p, sales s
+    WHERE s.product_id = p.id
+    GROUP BY s.department_id
+    HAVING SUM(p.price) > 10000
+)
+GROUP BY m.id
+HAVING SUM(p.price) > 1000
+ORDER BY m.id;
 
-with mafv as 
-    (select s.department_id, sum(p.price) from sales s
-        join products p
-        on s.product_id = p.id
-        group by s.department_id
-        having sum(p.price) > 10000
-    )    
-    
-    select s.member_id as id, m.name, m.email, sum(p.price) as total_spending 
-    from sales s
-    left join products p
-    on s.product_id = p.id
-    left join members m
-    on s.member_id = m.id
-    group by (s.member_id, m.name, m.email)
-    having sum(p.price) > 1000
-    group by s.member_id asc;
-    
-    select id, name, email, total_spending from members_approved_for_voucher;
-    
+SELECT * from members_approved_for_voucher;
